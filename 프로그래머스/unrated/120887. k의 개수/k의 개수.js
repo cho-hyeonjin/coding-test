@@ -1,18 +1,11 @@
-// 우선 i부터 j 사이의 숫자를 배열로 만든다.
-// 한 바퀴 돌 때마다 1씩 커지는 변수 n을 갖고, j-1만큼 도는 반복문을 만든다.
-// i 가 j와 같아지기 전까지 i + n 한 값을 배열에 push한다.
-// 해당 배열을 Array.prototype.join('') 메서드로 하나의 문자열로 만들어준다.
-// 해당 문자열을 String.prototype.split('') 메서드로 다시 배열로 만들어준 뒤
-// 카운팅 변수를 하나 선언하여
-// 해당 배열의 요소마다 k와 비교하여 같은 경우 카운팅 변수 값에 +1을 한 값을 리턴한다.
-
-function solution(i, j, k) {
-    let arr = [];
-    let newArr = [];
-    let count = 0;
-    for(let n = 0; n <= j-i; n++){
-        arr.push(i+n);
+function solution(i, j, k) {    
+    // ↓ 다른 사람의 문제 풀이를 보고 적용하여 다시 풀어 본 코드 ↓
+    
+    // 반복문 조건 설정 시 let i=0처럼 변수를 선언하고 초기화 할 필요 없이 어떤 값 자체를 사용할 수도 있다!
+    let str = '';
+    for(i; i <= j; i++){
+        str += i; // 문자열 연산으로 처리된다.
     }
-    arr.join('').split('').forEach(el => Number(el) === k ? count ++ : count);
-    return count;
+    return str.split(k).length-1 // 문자열을 k기준으로 요소로 split한 배열을 만든 뒤 length(는 1부터 시작하므로) -1 해준 값을 리턴한다.
+    // -->  사고를 전환하여 자료형의 특성을 이용하여 같은 결과를 도출해낼 수 있음을 배웠다.
 }
