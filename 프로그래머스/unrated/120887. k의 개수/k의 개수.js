@@ -13,7 +13,6 @@ function solution(i, j, k) {
     for(let n = 0; n <= j-i; n++){
         arr.push(i+n);
     }
-    newArr = arr.join('').split('')
-    newArr.forEach(el => Number(el) === k ? count ++ : count) // 계속 에러가 났던 이유는 el이 string이었기 때문..!
+    arr.join('').split('').forEach(el => Number(el) === k ? count ++ : count);
     return count;
 }
